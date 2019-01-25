@@ -5,39 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Working with data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="shared.css" />
     <script src="data.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
-<body class="container" onload="loadDataGrid()">
-    <header class="jumbotron">
-        <h1>List of students</h1>
-    </header>
-    
-    <section class="row-fluid">
-        <section class="btn-group">
-            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button>
-            <button class="btn btn-secondary" onclick="displayAverage()">Average</button>
-        </section>
+<body>
+    <div>
+    <h1 style="text-align:center; color: rgb(60, 161, 161)">List of students</h1>
+    </div>
+
+    <div class="Tableborder">
+    <table id="Mtable" class="table table-dark" , style="margin: auto; width: 1000px">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody id="body">
+        </tbody>
+    </table>
+
+    <div id="Div_average" class="alert alert-secondary" style="text-align: right; margin: auto; width: 1000px; top: 10px">
+        <span id=Avg_badge class="badge badge-light"></span>
+    </div>
+
+    <ol id="dataList">
+    </ol>
+
+    <section>
+        <button id="load" onclick="studentsInfo()" class="btn btn-outline-info" style="margin-left: 183px" >Load</button>
+
     </section>
-    <section class="row-fluid">
-        <section id="dataList" class="border">
-            <div class="row">
-                <div class="col-md">
-                    <b>Id</b>
-                </div>
-                <div class="col-md">
-                    <b>Name</b>
-                </div>
-                <div class="col-md">
-                    <b>Score</b>
-                </div>
-            </div>
-        </section>
-    </section>
-    <section class="row-fluid">
-        <section id="resultSection" class="alert alert-info">
-        </section>
-    </section>
+    </div>
+    <!-- <button onclick="Datos()">Datos</button>
+    <ol id=datos>
+    </ol> -->
+<!-- 
+    <section>
+        <br>
+        <button onclick="average()">Average: </button>
+        <p id=Avg></p>
+    </section> -->
+
+
+
 </body>
 </html>

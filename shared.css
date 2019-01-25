@@ -5,3 +5,34 @@ body {
 .highlight {
     background-color: yellow;
 }
+
+.buttonStyle1 {
+    border-radius: 15px;
+    border: 2px solid rgb(30, 31, 28);
+    padding: 5px; 
+    width: 100px;
+    height: 40px; 
+    
+  }
+
+
+
+.failed{
+
+    background-color:rgb(250, 128, 114);
+
+}
+
+.approved{
+    background-color:rgb(60, 161, 161);
+}
+
+.Tableborder{
+
+    border-style:solid;
+    border-color: rgb(110, 173, 236);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}

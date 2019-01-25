@@ -1,97 +1,95 @@
 var students = [
-    {id: "1122222", name: "John", score: 90 }, // 0 {Object} => students[0] => students[0].score => total  
-    {id: "2223333", name: "Larry", score: 60 }, // 1
-    {id: "4455555", name: "Joseph", score: 50 }, // 2
-    {id: "5526666", name: "Karla", score: 80}
+    {name: "John", score: 90 }, 
+    {name: "Larry", score: 60 }, 
+    {name: "Joseph", score: 50 }, 
 ];
 
-document.write("<h3>JSON</h3>");
-document.write("<pre class='alert alert-secondary'>"); // 1) Bootstrap class
-document.write(JSON.stringify(students, undefined, 2));
-document.write("</pre>");
-document.write("<br/>");
-var names = [];
+//document.writeln(students.length);
+// document.write("<pre>");
+// document.write(JSON.stringify(students, undefined, 2));
+// document.write("</pre>");
 
-students.forEach(student => {
-    names.push(student.name);
-});
+// var names = [];
 
-document.writeln("Students are:" + names);
+// students.forEach(student => {
+//     names.push(student.name);
+// });
 
-document.write("<pre>");
-document.writeln(`Average: ${calculateAverage()}`);
-document.write("</pre>");
+// document.writeln(names);
 
-function calculateAverage(){
 
-    var average = 0;
-    students.forEach(student => {
-        average = average + student.score;
-    });
-    average = average / students.length;
+function* Datos(){
 
-    return average;
+    yield* [
+        {id: 1 , name: "John", score: 90 }, 
+        {id: 2 , name: "Larry", score: 60 }, 
+        {id: 3 , name: "Joseph", score: 50 },
+        {id: 4 , name: "Karla", score: 40 } 
+    ]
+ 
 }
 
-function loadDataGrid() {
+d = Datos()
+scores = []
 
-    var i = 0;
-    let dataList = document.getElementById("dataList");
+function studentsInfo(){
+
+    record = d.next()
     
-    while (i < students.length)
-    {
-        var listItem = document.createElement("section");
-        listItem.classList.add("row");
+    if (!record.done){
+    scores.push(record.value.score)
+
+    var tbl = document.getElementById('body') // table reference
+    row = tbl.insertRow(-1) // append table row
+
+    if(record.value.score < 60){
         
-        var id = document.createElement("div");
-        id.classList.add("col-sm");
-        id.innerText =  students[i].id;
+    row.classList.add('failed')
 
-        var name = document.createElement("div");
-        name.classList.add("col-sm");
-        name.innerText =  students[i].name;
-
-        var score = document.createElement("div");
-        score.classList.add("col-sm");
-        score.innerText =  students[i].score;
-
-        console.log(students[i]);
-
-        dataList.appendChild(listItem);
-
-        listItem.appendChild(id);
-        listItem.appendChild(name);
-        listItem.appendChild(score);
-
-        i = i + 1; // Alternatively, use i++;
-
-        // Other ways:
-        // i += 2;
-        // i += 3;
     }
+    else
+    {
+        row.classList.add('approved');
+    }
+
+    console.log(record.value.score)
+
+    T_id = row.insertCell()
+    T_name = row.insertCell()
+    T_score = row.insertCell()
+   
+    T_id.innerText = record.value.id
+    T_name.innerText = (record.value.name)
+    T_score.innerText = (record.value.score)
+
+    // Div_average.innerText = 'Average: '
+    Avg_badge.innerText = `Average: ${average()}`
+
+    }
+    else
+    {
+        load.disabled = 'True'
+    }
+
 }
 
-function displayAverage()
-{
-    var resultSection = document.getElementById("resultSection");
-    var paragraph = document.createElement("p");
-    paragraph.classList.add("badge"); // 2) Bootstrap classes
-    paragraph.classList.add("badge-info");
+function average(){
+    var avg = 0;
 
-    paragraph.innerText = "Average: " + calculateAverage();
+    for (i=0 ;i < scores.length ;i++)
+    {
 
-    resultSection.appendChild(paragraph);
+    avg = avg + scores[i]
+    
+    }
+
+    avg = avg / scores.length
+    
+    // Avg.innerText = `Average: ${avg}`
+    return avg.toFixed(2)
 }
 
-function myReplacer(name, val) {
-    if (typeof val === 'string') {
-        return val.toString().toUpperCase();  
-     } else {
-        return val; // return as is
-    }
-};
 
-// Old-way of loading data (ol). No longer used
 function loadData(){
 
     var i = 0;
@@ -105,10 +103,6 @@ function loadData(){
         listItem.innerText = students[i].name;
 
         dataList.appendChild(listItem);
-        i = i + 1; // Alternatively, use i++;
-
-        // Other ways:
-        // i += 2;
-        // i += 3;
+        i = i + 1; 
     }
 }
