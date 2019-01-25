@@ -1,6 +1,3 @@
-console.log("testing...");
-console.log(new Date());
-
 var sum = 1 + 1;
 console.log(sum);
 
@@ -65,3 +62,5 @@ function untoggle() {
     //textSection.classList.add("normal");    
     textSection.classList.remove("highlight");
 }
+
+

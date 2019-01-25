@@ -15,6 +15,26 @@
     </div>
 
     <div class="Tableborder">
+
+<form id='F_newStudent' onsubmit="event.preventDefault()" class="form-inline divNewStudent">
+
+    <div>
+        <input id='names' type="text" placeholder="Name" required>
+    </div>
+
+    <div>
+        <input id='score' type="text" placeholder="Score" required>
+    </div>
+
+    <div>
+
+        <input type="submit"  value="Add New Student" onclick="addStudent()" class="btn btn-outline-info" style="margin-left: 60px;">
+
+    </div>
+
+</form>
+
+    
     <table id="Mtable" class="table table-dark" , style="margin: auto; width: 1000px">
         <thead>
           <tr>
@@ -35,7 +55,7 @@
     </ol>
 
     <section>
-        <button id="load" onclick="studentsInfo()" class="btn btn-outline-info" style="margin-left: 183px" >Load</button>
+        <button id="load" onclick="studentsInfo()" class="btn btn-outline-info" style="margin-left: 80px" >Load</button>
 
     </section>
     </div>

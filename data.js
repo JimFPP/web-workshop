@@ -1,7 +1,8 @@
 var students = [
-    {name: "John", score: 90 }, 
-    {name: "Larry", score: 60 }, 
-    {name: "Joseph", score: 50 }, 
+    {id:1, name: "John", score: 90 }, 
+    {id:2, name: "Larry", score: 60 }, 
+    {id:3, name: "Joseph", score: 50 },
+    {id:4, name: "John", score: 90 }, 
 ];
 
 //document.writeln(students.length);
@@ -20,12 +21,7 @@ var students = [
 
 function* Datos(){
 
-    yield* [
-        {id: 1 , name: "John", score: 90 }, 
-        {id: 2 , name: "Larry", score: 60 }, 
-        {id: 3 , name: "Joseph", score: 50 },
-        {id: 4 , name: "Karla", score: 40 } 
-    ]
+    yield* students;
  
 }
 
@@ -68,7 +64,7 @@ function studentsInfo(){
     }
     else
     {
-        load.disabled = 'True'
+        load.disabled = true
     }
 
 }
@@ -105,4 +101,25 @@ function loadData(){
         dataList.appendChild(listItem);
         i = i + 1; 
     }
+}
+
+
+function addStudent(){
+
+
+    // if (name.value != "" && score.value != "")
+    // {
+    var S_name = names.value
+    var S_score = score.value
+    console.log(S_score)
+
+    students.push({id:(students.length + 1), name: S_name, score: parseInt(S_score) })
+
+
+    names.value = "";
+    score.value = "";
+
+    load.disabled = false
+    // }
+
 }
