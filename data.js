@@ -2,7 +2,7 @@ var students = [
     {id:1, name: "John", score: 90 }, 
     {id:2, name: "Larry", score: 60 }, 
     {id:3, name: "Joseph", score: 50 },
-    {id:4, name: "John", score: 90 }, 
+    {id:4, name: "Karla", score: 40 }, 
 ];
 
 //document.writeln(students.length);
@@ -62,7 +62,7 @@ function studentsInfo(){
     Avg_badge.innerText = `Average: ${average()}`
 
     }
-    else
+    else 
     {
         load.disabled = true
     }
