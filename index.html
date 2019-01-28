@@ -1,86 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Welcome!
-        </title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    </head>
-    <body class="container">
-        <div class="header clearfix">
-            <nav>
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="page1.html">About</a></li>
-                    <li><a href="page2.html">Contact</a></li>
-                    <li><a href="css-example.html">CSS</a></li>
-                    <li><a href="js-examples-2.html">More JavaScript</a></li>
-                </ul>
-            </nav>
-            <h3>Welcome</h3>
-        </div>
-        <div class="jumbotron">
-            testing text
-            <h3>
-                small title
-            </h3>
-
-            <p class="lead">
-                lead text
-            </p>
-
-            <a href="#" class="btn btn-primary">
-                Hyperlink 1
-            </a>
-
-            <a href="#" class="btn btn-success">
-                Hyperlink 2
-            </a>
-        </div>
-    <h1>
-        This is H1
-    </h1>
-
-    <h2>
-        This is H2
-    </h2>
-    <h3>
-        This is H3
-    </h3>
-
-    <h4>
-        Index:
-    </h4>
-
-    <p>
-        <a href="https://www.google.com">Go to Google</a>
-        &nbsp;
-
-        <span></span>
-        <a href="page1.html">Go to page1</a>
-
-        <a href="page2.html">Controls</a>
- 
-        <a href="css-example.html">CSS</a>
-
-        <a href="js-examples.html">JavaScript examples</a>
-    </p>
-    <br>
-
-    <p>
-        Hello World! Esteban
-    </p>
-    <br>
-    Solano
-
-    <p>
-        Text here
-    </p>
-
-    <br>
-    Tuesday, December 11th, 2018
-
-    <hr>
-    Reserved Rights, ESG
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Working with data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="shared.css" />
+    <script src="data.js"></script>
+    <script src="webservices.js"></script>
+</head>
+<body class="container" onload="loadDataGrid()">
+    <header class="jumbotron">
+        <h1>List of students</h1> 
+    </header>
+    
+    <section class="row-fluid">
+        <section class="btn-group">
+            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button>
+            <button class="btn btn-secondary" onclick="displayAverage()">Average</button>
+        </section>
+        <section class="span-1">
+            <label for="scoreInput">Passing score</label>
+            <input id="scoreInput" type="number" value="60" onchange="refreshScores()" />
+        </section>
+    </section>
+    <section class="row-fluid">
+        <ol id="dataList2" hidden></ol>
+        <section id="dataList" class="border">
+            <div class="row">
+                <div class="col-md">
+                    <b>Id</b>
+                </div>
+                <div class="col-md">
+                    <b>Name</b>
+                </div>
+                <div class="col-md">
+                    <b>Score</b>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section id="resultSection" class="alert alert-info">
+        </section>
+    </section>
+</body>
 </html>
