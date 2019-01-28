@@ -11,7 +11,7 @@ students.forEach(student => {
     names.push(student.name);
 });
 
-document.writeln("Students are:" + names);
+document.writeln("Students are:" + names); 
 
 document.write("<pre>");
 document.writeln(`Average: ${calculateAverage()}`);

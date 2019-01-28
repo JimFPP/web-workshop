@@ -13,7 +13,7 @@ function sayHello() {
 
     var name = "John";
     
-    name = {"name" : "John"};
+    name = {"name" : "John"}; 
 
     // Store in the variable
     name = prompt("What's your name?");
